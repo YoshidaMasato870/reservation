@@ -1,0 +1,24 @@
+<%= render "shared/header_common" %>
+
+<section class=background_color_login>
+    <div class=login_container>
+    <h2 class=login_title>ログイン</h2>
+    <%= form_with model: @user do |f| %>
+        <p><%= f.label :mail_address ,"メールアドレス" %></p>
+        <p class=form_p_login>
+        <%= f.text_field :mail_address ,
+            placeholder: "メールアドレスを入力してください" ,
+            class: "form_login" %>
+        </p>
+        <p><%= f.label :passward , "パスワード" %></p>
+        <p class=form_p_login>
+        <%= f.text_field :password ,
+            placeholder: "パスワードを入力してください" ,
+            class: "form_login" %>
+        </p>
+        <p class=login_button><%= button_to "ログイン" %></p>
+        <p class=create_account><%= link_to "新規登録" , new_user_path %></p>
+        <p><%= link_to "トップページに戻る" , reservation_top_path %>
+    <% end %>
+    </div>
+</section>

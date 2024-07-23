@@ -1,0 +1,33 @@
+<%= render "shared/header_common" %>
+
+<section class=background_color_new>
+    <div class=user_new_container>
+    <h2 class=user_new_title>新規登録</h2>
+        <%= form_with model: @user do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <p><%= f.label :user_name , "ユーザー名" %></p>
+        <p><%= f.text_field :user_name ,
+            placeholder: "ユーザー名を入力してください" ,
+            class: "user_new_form" %>
+        </p>
+        <p><%= f.label :mail_address , "メールアドレス" %></p>
+        <p><%= f.text_field :mail_address ,
+            placeholder: "メールアドレスを入力してください" ,
+            class: "user_new_form" %>
+        </p>
+        <p><%= f.label :password , "パスワード" %></p>
+        <p><%= f.text_field :password ,
+            placeholder: "パスワードを入力してください" ,
+            class: "user_new_form" %>
+        </p>
+        <p><%= f.label :check_password , "確認用パスワード"%></p>
+        <p><%= f.text_field :check_password ,
+            placeholder: "パスワードをもう一度入力してください" ,
+            class: "user_new_form" %>
+        </p>
+        <p><%= button_to "新しいアカウントを作成" ,:users ,method: :post%></p>
+        <p><%= link_to "アカウントをお持ちの方はログイン" , user_login_path %></p>
+        <p><%= link_to "トップページに戻る" , reservation_top_path %>
+        <% end %>
+    </div>
+</section>
